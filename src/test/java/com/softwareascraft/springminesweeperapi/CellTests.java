@@ -9,9 +9,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CellTests {
 
     @Test
-    void createCell() {
+    void newCellDoesNotContainMine() {
         Cell cell = new Cell();
-        boolean isMine = cell.isMine();
+        boolean isMine = cell.containsMine();
         assertThat(isMine).isFalse();
     }
 
@@ -20,7 +20,7 @@ public class CellTests {
         Cell cell = new Cell();
         cell.setMine();
 
-        boolean isMine = cell.isMine();
+        boolean isMine = cell.containsMine();
         assertThat(isMine).isTrue();
 
     }

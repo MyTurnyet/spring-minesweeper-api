@@ -1,13 +1,14 @@
 package com.softwareascraft.springminesweeperapi;
 
 public class Cell {
-    private boolean isMine;
 
-    public boolean isMine() {
-        return this.isMine;
+    private boolean holdsMine;
+
+    public boolean containsMine() {
+        return this.holdsMine;
     }
 
     public void setMine() {
-        this.isMine = true;
+        this.holdsMine = true;
     }
 }
