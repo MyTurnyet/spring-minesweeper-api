@@ -14,4 +14,14 @@ public class CellTests {
         boolean isMine = cell.isMine();
         assertThat(isMine).isFalse();
     }
+
+    @Test
+    void setCellAsMine() {
+        Cell cell = new Cell();
+        cell.setMine();
+
+        boolean isMine = cell.isMine();
+        assertThat(isMine).isTrue();
+
+    }
 }
