@@ -9,7 +9,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CellTests {
 
     @Test
-    void testCell() {
-        assertThat(true).isTrue();
+    void createCell() {
+        Cell cell = new Cell();
+        boolean isMine = cell.isMine();
+        assertThat(isMine).isFalse();
     }
 }
