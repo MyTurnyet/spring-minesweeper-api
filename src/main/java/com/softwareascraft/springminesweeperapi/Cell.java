@@ -6,10 +6,10 @@ public class Cell {
     private boolean holdsMine;
 
     public Cell() {
-        this(false);
+        this(false, false);
     }
 
-    public Cell(boolean showsFlag) {
+    public Cell(boolean showsFlag, boolean holdsMine) {
         this.showsFlag = showsFlag;
     }
 
@@ -26,10 +26,10 @@ public class Cell {
     }
 
     public Cell removeFlag() {
-        return new Cell(false);
+        return new Cell(false, false);
     }
 
     public Cell addFlag() {
-        return new Cell(true);
+        return new Cell(true, false);
     }
 }

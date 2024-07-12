@@ -33,20 +33,22 @@ public class CellTests {
 
     @Test
     void cellShowsFlag() {
-        Cell cell = new Cell(true);
+        Cell cell = new Cell(true, false);
         boolean isFlagged = cell.isFlagged();
         assertThat(isFlagged).isTrue();
     }
+
     @Test
     void cellRemovesFlag() {
-        Cell cell = new Cell(true);
+        Cell cell = new Cell(true, false);
         Cell removedFlag = cell.removeFlag();
         boolean isFlagged = removedFlag.isFlagged();
         assertThat(isFlagged).isFalse();
     }
+
     @Test
     void cellAddsFlag() {
-        Cell cell = new Cell(false);
+        Cell cell = new Cell(false, false);
         Cell addFlag = cell.addFlag();
         boolean isFlagged = addFlag.isFlagged();
         assertThat(isFlagged).isTrue();
