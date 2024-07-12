@@ -17,7 +17,7 @@ public class CellTests {
 
     @Test
     void setCellAsMine() {
-        Cell cell = new Cell(false, true);
+        MineCell cell = new MineCell();
         boolean isMine = cell.containsMine();
         assertThat(isMine).isTrue();
     }
