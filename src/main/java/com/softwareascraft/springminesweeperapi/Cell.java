@@ -11,14 +11,11 @@ public class Cell {
 
     public Cell(boolean showsFlag, boolean holdsMine) {
         this.showsFlag = showsFlag;
+        this.holdsMine = holdsMine;
     }
 
     public boolean containsMine() {
         return this.holdsMine;
-    }
-
-    public void setMine() {
-        this.holdsMine = true;
     }
 
     public boolean isFlagged() {
