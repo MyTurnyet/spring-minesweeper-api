@@ -25,7 +25,7 @@ public class CellTests {
     }
 
     @Test
-    void cellDoesNotShowFlag() {
+    void cellDoesNotShowFlagByDefault() {
         Cell cell = new Cell();
         boolean isFlagged = cell.isFlagged();
         assertThat(isFlagged).isFalse();
