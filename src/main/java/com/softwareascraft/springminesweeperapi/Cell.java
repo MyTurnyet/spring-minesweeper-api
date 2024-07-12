@@ -11,4 +11,8 @@ public class Cell {
     public void setMine() {
         this.holdsMine = true;
     }
+
+    public boolean isFlagged() {
+        return false;
+    }
 }

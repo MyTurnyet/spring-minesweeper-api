@@ -22,6 +22,13 @@ public class CellTests {
 
         boolean isMine = cell.containsMine();
         assertThat(isMine).isTrue();
+    }
+
+    @Test
+    void cellDoesNotShowFlag() {
+        Cell cell = new Cell();
+        boolean isFlagged = cell.isFlagged();
+        assertThat(isFlagged).isFalse();
 
     }
 }
