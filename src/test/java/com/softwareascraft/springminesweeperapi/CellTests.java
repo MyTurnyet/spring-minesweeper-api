@@ -29,6 +29,12 @@ public class CellTests {
         Cell cell = new Cell();
         boolean isFlagged = cell.isFlagged();
         assertThat(isFlagged).isFalse();
-
+    }
+    @Test
+    void cellShowsFlag() {
+        Cell cell = new Cell();
+        cell.setFlag();
+        boolean isFlagged = cell.isFlagged();
+        assertThat(isFlagged).isTrue();
     }
 }

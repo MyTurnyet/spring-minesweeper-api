@@ -2,6 +2,7 @@ package com.softwareascraft.springminesweeperapi;
 
 public class Cell {
 
+    private boolean showsFlag;
     private boolean holdsMine;
 
     public boolean containsMine() {
@@ -13,6 +14,11 @@ public class Cell {
     }
 
     public boolean isFlagged() {
-        return false;
+        return this.showsFlag;
     }
+
+    public void setFlag() {
+        this.showsFlag = true;
+    }
+
 }
