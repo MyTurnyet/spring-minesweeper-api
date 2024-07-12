@@ -44,4 +44,11 @@ public class CellTests {
         boolean isFlagged = removedFlag.isFlagged();
         assertThat(isFlagged).isFalse();
     }
+    @Test
+    void cellAddsFlag() {
+        Cell cell = new Cell(false);
+        Cell addFlag = cell.addFlag();
+        boolean isFlagged = addFlag.isFlagged();
+        assertThat(isFlagged).isTrue();
+    }
 }

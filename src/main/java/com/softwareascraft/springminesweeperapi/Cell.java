@@ -28,4 +28,8 @@ public class Cell {
     public Cell removeFlag() {
         return new Cell(false);
     }
+
+    public Cell addFlag() {
+        return new Cell(true);
+    }
 }
