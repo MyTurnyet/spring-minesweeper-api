@@ -24,9 +24,4 @@ public class Cell {
     public boolean isFlagged() {
         return this.showsFlag;
     }
-
-    public void setFlag() {
-        this.showsFlag = true;
-    }
-
 }
