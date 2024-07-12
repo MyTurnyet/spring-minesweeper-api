@@ -3,20 +3,18 @@ package com.softwareascraft.springminesweeperapi;
 public class EmptyCell implements Cell {
 
     private boolean showsFlag;
-    private boolean holdsMine;
 
     public EmptyCell() {
-        this(false, false);
+        this(false);
     }
 
-    public EmptyCell(boolean showsFlag, boolean holdsMine) {
+    public EmptyCell(boolean showsFlag) {
         this.showsFlag = showsFlag;
-        this.holdsMine = holdsMine;
     }
 
     @Override
     public boolean containsMine() {
-        return this.holdsMine;
+        return false;
     }
 
     @Override
@@ -26,11 +24,11 @@ public class EmptyCell implements Cell {
 
     @Override
     public Cell removeFlag() {
-        return new EmptyCell(false, false);
+        return new EmptyCell(false);
     }
 
     @Override
     public Cell addFlag() {
-        return new EmptyCell(true, false);
+        return new EmptyCell(true);
     }
 }

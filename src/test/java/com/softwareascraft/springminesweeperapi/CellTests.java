@@ -31,14 +31,14 @@ public class CellTests {
 
     @Test
     void cellShowsFlag() {
-        Cell cell = new EmptyCell(true, false);
+        Cell cell = new EmptyCell(true);
         boolean isFlagged = cell.isFlagged();
         assertThat(isFlagged).isTrue();
     }
 
     @Test
     void cellRemovesFlag() {
-        Cell cell = new EmptyCell(true, false);
+        Cell cell = new EmptyCell(true);
         Cell removedFlag = cell.removeFlag();
         boolean isFlagged = removedFlag.isFlagged();
         assertThat(isFlagged).isFalse();
@@ -46,7 +46,7 @@ public class CellTests {
 
     @Test
     void cellAddsFlag() {
-        Cell cell = new EmptyCell(false, false);
+        Cell cell = new EmptyCell(false);
         Cell addFlag = cell.addFlag();
         boolean isFlagged = addFlag.isFlagged();
         assertThat(isFlagged).isTrue();
