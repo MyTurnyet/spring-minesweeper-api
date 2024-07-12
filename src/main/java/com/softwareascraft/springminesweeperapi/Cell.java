@@ -5,6 +5,14 @@ public class Cell {
     private boolean showsFlag;
     private boolean holdsMine;
 
+    public Cell() {
+        this(false);
+    }
+
+    public Cell(boolean showsFlag) {
+        this.showsFlag = showsFlag;
+    }
+
     public boolean containsMine() {
         return this.holdsMine;
     }
