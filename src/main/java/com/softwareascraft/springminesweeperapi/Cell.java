@@ -24,4 +24,8 @@ public class Cell {
     public boolean isFlagged() {
         return this.showsFlag;
     }
+
+    public Cell removeFlag() {
+        return new Cell(false);
+    }
 }
