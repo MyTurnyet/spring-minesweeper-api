@@ -1,32 +1,11 @@
 package com.softwareascraft.springminesweeperapi;
 
-public class Cell {
+public interface Cell {
+    boolean containsMine();
 
-    private boolean showsFlag;
-    private boolean holdsMine;
+    boolean isFlagged();
 
-    public Cell() {
-        this(false, false);
-    }
+    Cell removeFlag();
 
-    public Cell(boolean showsFlag, boolean holdsMine) {
-        this.showsFlag = showsFlag;
-        this.holdsMine = holdsMine;
-    }
-
-    public boolean containsMine() {
-        return this.holdsMine;
-    }
-
-    public boolean isFlagged() {
-        return this.showsFlag;
-    }
-
-    public Cell removeFlag() {
-        return new Cell(false, false);
-    }
-
-    public Cell addFlag() {
-        return new Cell(true, false);
-    }
+    Cell addFlag();
 }

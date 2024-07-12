@@ -10,35 +10,35 @@ public class CellTests {
 
     @Test
     void newCellDoesNotContainMine() {
-        Cell cell = new Cell();
+        Cell cell = new EmptyCell();
         boolean isMine = cell.containsMine();
         assertThat(isMine).isFalse();
     }
 
     @Test
     void setCellAsMine() {
-        MineCell cell = new MineCell();
+        Cell cell = new MineCell();
         boolean isMine = cell.containsMine();
         assertThat(isMine).isTrue();
     }
 
     @Test
     void cellDoesNotShowFlagByDefault() {
-        Cell cell = new Cell();
+        Cell cell = new EmptyCell();
         boolean isFlagged = cell.isFlagged();
         assertThat(isFlagged).isFalse();
     }
 
     @Test
     void cellShowsFlag() {
-        Cell cell = new Cell(true, false);
+        Cell cell = new EmptyCell(true, false);
         boolean isFlagged = cell.isFlagged();
         assertThat(isFlagged).isTrue();
     }
 
     @Test
     void cellRemovesFlag() {
-        Cell cell = new Cell(true, false);
+        Cell cell = new EmptyCell(true, false);
         Cell removedFlag = cell.removeFlag();
         boolean isFlagged = removedFlag.isFlagged();
         assertThat(isFlagged).isFalse();
@@ -46,7 +46,7 @@ public class CellTests {
 
     @Test
     void cellAddsFlag() {
-        Cell cell = new Cell(false, false);
+        Cell cell = new EmptyCell(false, false);
         Cell addFlag = cell.addFlag();
         boolean isFlagged = addFlag.isFlagged();
         assertThat(isFlagged).isTrue();
