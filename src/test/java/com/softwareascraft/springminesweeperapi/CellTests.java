@@ -30,10 +30,10 @@ public class CellTests {
         boolean isFlagged = cell.isFlagged();
         assertThat(isFlagged).isFalse();
     }
+
     @Test
     void cellShowsFlag() {
-        Cell cell = new Cell();
-        cell.setFlag();
+        Cell cell = new Cell(true);
         boolean isFlagged = cell.isFlagged();
         assertThat(isFlagged).isTrue();
     }
