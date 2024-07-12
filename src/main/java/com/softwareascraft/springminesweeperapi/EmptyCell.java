@@ -15,4 +15,14 @@ public class EmptyCell extends FlaggableCell {
         return false;
     }
 
+    @Override
+    public Cell removeFlag() {
+        return new EmptyCell(false);
+    }
+
+    @Override
+    public Cell addFlag() {
+        return new EmptyCell(true);
+    }
+
 }

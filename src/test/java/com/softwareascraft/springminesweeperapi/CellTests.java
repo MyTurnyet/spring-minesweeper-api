@@ -51,4 +51,13 @@ public class CellTests {
         boolean isFlagged = addFlag.isFlagged();
         assertThat(isFlagged).isTrue();
     }
+
+    @Test
+    void mineCellAddsFlag() {
+        Cell cell = new MineCell(false);
+        Cell addFlag = cell.addFlag();
+        boolean isFlagged = addFlag.isFlagged();
+        assertThat(isFlagged).isTrue();
+        assertThat(addFlag.containsMine()).isTrue();
+    }
 }

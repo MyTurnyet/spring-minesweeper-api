@@ -17,12 +17,8 @@ public abstract class FlaggableCell implements Cell {
     }
 
     @Override
-    public Cell removeFlag() {
-        return new EmptyCell(false);
-    }
+    public abstract Cell removeFlag();
 
     @Override
-    public Cell addFlag() {
-        return new EmptyCell(true);
-    }
+    public abstract Cell addFlag();
 }

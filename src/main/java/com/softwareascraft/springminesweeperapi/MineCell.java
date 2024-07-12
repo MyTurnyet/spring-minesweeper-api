@@ -1,27 +1,27 @@
 package com.softwareascraft.springminesweeperapi;
 
-public class MineCell implements Cell {
+public class MineCell extends FlaggableCell {
+
+    public MineCell() {
+        this(false);
+    }
+
+    public MineCell(boolean showsFlag) {
+        super(showsFlag);
+    }
 
     @Override
     public boolean containsMine() {
         return true;
     }
 
-    // TODO
-    @Override
-    public boolean isFlagged() {
-        return false;
-    }
-
-    // TODO
     @Override
     public Cell removeFlag() {
-        return null;
+        return new MineCell(false);
     }
 
-    // TODO
     @Override
     public Cell addFlag() {
-        return null;
+        return new MineCell(true);
     }
 }
