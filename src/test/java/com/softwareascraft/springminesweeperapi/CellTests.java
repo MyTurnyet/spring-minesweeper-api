@@ -62,8 +62,8 @@ public class CellTests {
     }
 
     @Test
-    void newCellDefaultsToNonRevealed() {
-        Cell cell = new MineCell(false);
+    void flaggableCellIsNotRevealed() {
+        FlaggableCell<MineCell> cell = new MineCell(false);
         assertThat(cell.isRevealed()).isFalse();
     }
 }
