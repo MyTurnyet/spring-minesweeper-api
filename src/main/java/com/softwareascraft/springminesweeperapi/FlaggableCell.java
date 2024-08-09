@@ -16,6 +16,10 @@ public abstract class FlaggableCell<T> implements Cell {
         return this.showsFlag;
     }
 
+    @Override
+    public boolean isRevealed() {
+        return false;
+    }
     public abstract T removeFlag();
 
     public abstract T addFlag();

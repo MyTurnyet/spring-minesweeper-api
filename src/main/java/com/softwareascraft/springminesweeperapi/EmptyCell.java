@@ -25,9 +25,4 @@ public class EmptyCell extends FlaggableCell<EmptyCell> {
         return new EmptyCell(true);
     }
 
-    @Override
-    public boolean isRevealed() {
-        return false;
-    }
-
 }
