@@ -24,38 +24,38 @@ public class CellTests {
 
     @Test
     void cellDoesNotShowFlagByDefault() {
-        Cell cell = new EmptyCell();
+        FlaggableCell cell = new EmptyCell();
         boolean isFlagged = cell.isFlagged();
         assertThat(isFlagged).isFalse();
     }
 
     @Test
     void cellShowsFlag() {
-        Cell cell = new EmptyCell(true);
+        FlaggableCell<EmptyCell> cell = new EmptyCell(true);
         boolean isFlagged = cell.isFlagged();
         assertThat(isFlagged).isTrue();
     }
 
     @Test
     void cellRemovesFlag() {
-        Cell cell = new EmptyCell(true);
-        Cell removedFlag = cell.removeFlag();
+        FlaggableCell<EmptyCell> cell = new EmptyCell(true);
+        FlaggableCell<EmptyCell> removedFlag = cell.removeFlag();
         boolean isFlagged = removedFlag.isFlagged();
         assertThat(isFlagged).isFalse();
     }
 
     @Test
     void cellAddsFlag() {
-        Cell cell = new EmptyCell(false);
-        Cell addFlag = cell.addFlag();
+        FlaggableCell<EmptyCell> cell = new EmptyCell(false);
+        FlaggableCell<EmptyCell> addFlag = cell.addFlag();
         boolean isFlagged = addFlag.isFlagged();
         assertThat(isFlagged).isTrue();
     }
 
     @Test
     void mineCellAddsFlag() {
-        Cell cell = new MineCell(false);
-        Cell addFlag = cell.addFlag();
+        FlaggableCell<MineCell> cell = new MineCell(false);
+        FlaggableCell<MineCell> addFlag = cell.addFlag();
         boolean isFlagged = addFlag.isFlagged();
         assertThat(isFlagged).isTrue();
         assertThat(addFlag.containsMine()).isTrue();

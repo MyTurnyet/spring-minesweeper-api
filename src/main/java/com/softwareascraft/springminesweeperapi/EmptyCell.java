@@ -1,6 +1,6 @@
 package com.softwareascraft.springminesweeperapi;
 
-public class EmptyCell extends FlaggableCell {
+public class EmptyCell extends FlaggableCell<EmptyCell> {
 
     public EmptyCell() {
         this(false);
@@ -16,12 +16,12 @@ public class EmptyCell extends FlaggableCell {
     }
 
     @Override
-    public Cell removeFlag() {
+    public EmptyCell removeFlag() {
         return new EmptyCell(false);
     }
 
     @Override
-    public Cell addFlag() {
+    public EmptyCell addFlag() {
         return new EmptyCell(true);
     }
 
