@@ -24,4 +24,9 @@ public class MineCell extends FlaggableCell {
     public Cell addFlag() {
         return new MineCell(true);
     }
+
+    @Override
+    public boolean isRevealed() {
+        return false;
+    }
 }

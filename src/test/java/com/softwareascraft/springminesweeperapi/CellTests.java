@@ -60,4 +60,10 @@ public class CellTests {
         assertThat(isFlagged).isTrue();
         assertThat(addFlag.containsMine()).isTrue();
     }
+
+    @Test
+    void newCellDefaultsToNonRevealed() {
+        Cell cell = new MineCell(false);
+        assertThat(cell.isRevealed()).isFalse();
+    }
 }
