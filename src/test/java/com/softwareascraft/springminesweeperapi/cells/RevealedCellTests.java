@@ -1,4 +1,4 @@
-package com.softwareascraft.springminesweeperapi;
+package com.softwareascraft.springminesweeperapi.cells;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;

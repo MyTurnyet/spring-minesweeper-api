@@ -1,4 +1,4 @@
-package com.softwareascraft.springminesweeperapi;
+package com.softwareascraft.springminesweeperapi.cells;
 
 public class RevealedCell implements Cell {
 
