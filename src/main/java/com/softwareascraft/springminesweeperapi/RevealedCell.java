@@ -1,6 +1,7 @@
 package com.softwareascraft.springminesweeperapi;
 
 public class RevealedCell implements Cell {
+
     @Override
     public boolean containsMine() {
         return false;
@@ -9,5 +10,9 @@ public class RevealedCell implements Cell {
     @Override
     public boolean isRevealed() {
         return true;
+    }
+
+    public int adjacentMines() {
+        return 0;
     }
 }
