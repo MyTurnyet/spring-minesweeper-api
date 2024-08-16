@@ -19,4 +19,10 @@ public class GridCellTests {
         GridCell gridCell = new GridCell(0, 0);
         assertThat(gridCell.isAt(1, 0)).isFalse();
     }
+
+    @Test
+    void isNotInGivenColumn() {
+        GridCell gridCell = new GridCell(0, 0);
+        assertThat(gridCell.isAt(0, 1)).isFalse();
+    }
 }

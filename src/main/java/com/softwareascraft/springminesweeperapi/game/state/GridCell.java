@@ -11,8 +11,6 @@ public class GridCell {
     }
 
     public boolean isAt(int row, int column) {
-        if (this.rowIndex != row) return false;
-        
-        return true;
+        return this.rowIndex == row && this.columnIndex == column;
     }
 }
