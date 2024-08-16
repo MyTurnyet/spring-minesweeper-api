@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RevealedCellTests {
 
     @Test
-    void revealedCellShouldImplementCell() {
+    void shouldImplementCell() {
         Cell revealedCell = new RevealedCell();
         assertThat(revealedCell.isRevealed()).isTrue();
     }
@@ -21,7 +21,7 @@ public class RevealedCellTests {
     }
 
     @Test
-    void applesauce() {
+    void returnsPassedInAdjacentMineCount() {
         RevealedCell revealedCell = new RevealedCell(4);
         assertThat(revealedCell.adjacentMines()).isEqualTo(4);
     }
