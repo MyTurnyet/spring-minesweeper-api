@@ -19,4 +19,10 @@ public class RevealedCellTests {
         RevealedCell revealedCell = new RevealedCell();
         assertThat(revealedCell.adjacentMines()).isEqualTo(0);
     }
+
+    @Test
+    void applesauce() {
+        RevealedCell revealedCell = new RevealedCell(4);
+        assertThat(revealedCell.adjacentMines()).isEqualTo(4);
+    }
 }

@@ -2,6 +2,17 @@ package com.softwareascraft.springminesweeperapi;
 
 public class RevealedCell implements Cell {
 
+    private final int neighboringMinesCount;
+
+    public RevealedCell(int neighboringMinesCount) {
+
+        this.neighboringMinesCount = neighboringMinesCount;
+    }
+
+    public RevealedCell() {
+        this(0);
+    }
+
     @Override
     public boolean containsMine() {
         return false;
@@ -13,6 +24,6 @@ public class RevealedCell implements Cell {
     }
 
     public int adjacentMines() {
-        return 0;
+        return neighboringMinesCount;
     }
 }
