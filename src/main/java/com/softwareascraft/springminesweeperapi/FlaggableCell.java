@@ -11,7 +11,6 @@ public abstract class FlaggableCell<T> implements Cell {
     @Override
     public abstract boolean containsMine();
 
-
     public boolean isFlagged() {
         return this.showsFlag;
     }
@@ -20,6 +19,7 @@ public abstract class FlaggableCell<T> implements Cell {
     public boolean isRevealed() {
         return false;
     }
+
     public abstract T removeFlag();
 
     public abstract T addFlag();

@@ -5,7 +5,6 @@ public class RevealedCell implements Cell {
     private final int neighboringMinesCount;
 
     public RevealedCell(int neighboringMinesCount) {
-
         this.neighboringMinesCount = neighboringMinesCount;
     }
 
