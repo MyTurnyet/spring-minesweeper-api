@@ -30,14 +30,26 @@ public class GridCellTests {
     }
 
     @Test
-    void gridcellWithEmptyCellDoesNotContainMine() {
+    void gridCellWithEmptyCellDoesNotContainMine() {
         GridCell gridCell = GridCell.empty(0, 0);
         assertThat(gridCell.containsMine()).isFalse();
     }
 
     @Test
-    void gridcellWithMineCellContainsMine() {
+    void gridCellWithMineCellContainsMine() {
         GridCell gridCell = GridCell.withMine(0, 0);
         assertThat(gridCell.containsMine()).isTrue();
     }
+
+    @Test
+    void gridCellWithRevealedCellIsRevealed() {
+        GridCell gridCell = GridCell.withRevealedCell(0,0);
+        assertThat(gridCell.isRevealed()).isTrue();
+    }
+
+//    @Test
+//    void gridCellWithMineCellContainsMine() {
+//        GridCell gridCell = GridCell.withMine(0, 0);
+//        assertThat(gridCell.containsMine()).isTrue();
+//    }
 }
