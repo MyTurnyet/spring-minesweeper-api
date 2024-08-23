@@ -1,8 +1,5 @@
 package com.softwareascraft.springminesweeperapi.game.state;
 
-import com.softwareascraft.springminesweeperapi.cells.Cell;
-import com.softwareascraft.springminesweeperapi.cells.EmptyCell;
-import com.softwareascraft.springminesweeperapi.cells.MineCell;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +10,7 @@ public class GridCellTests {
 
     @Test
     void createsWithCoordinates() {
-        GridCell gridCell = GridCell.empty(0,0);
+        GridCell gridCell = GridCell.empty(0, 0);
         assertThat(gridCell.isAt(0, 0)).isTrue();
     }
 
@@ -44,7 +41,14 @@ public class GridCellTests {
 
     @Test
     void gridCellWithRevealedCellIsRevealed() {
-        GridCell gridCell = GridCell.withRevealedCell(0,0);
+        GridCell gridCell = GridCell.withRevealedCell(0, 0, 0);
         assertThat(gridCell.isRevealed()).isTrue();
+    }
+
+    @Test
+    void applesauce() {
+        int neighboringMines = 1;
+        GridCell gridCell = GridCell.withRevealedCell(0, 0, neighboringMines);
+        assertThat(gridCell.adjacentMines()).isEqualTo(1);
     }
 }
