@@ -16,7 +16,7 @@ public class GridCell {
     }
 
     public static GridCell withRevealedCell(int row, int column, int neighboringMines) {
-        return new GridCell(row, column, new RevealedCell());
+        return new GridCell(row, column, new RevealedCell(neighboringMines));
     }
 
     private final int rowIndex;
@@ -43,6 +43,10 @@ public class GridCell {
     }
 
     public int adjacentMines() {
-        return 1;
+        if (!this.isRevealed()) {
+            return 0;
+        }
+        RevealedCell cell1 = (RevealedCell) this.cell;
+        return cell1.adjacentMines();
     }
 }

@@ -43,6 +43,7 @@ public class GridCellTests {
     void gridCellWithRevealedCellIsRevealed() {
         GridCell gridCell = GridCell.withRevealedCell(0, 0, 0);
         assertThat(gridCell.isRevealed()).isTrue();
+        assertThat(gridCell.adjacentMines()).isEqualTo(0);
     }
 
     @Test
