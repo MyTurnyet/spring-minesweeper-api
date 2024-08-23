@@ -39,6 +39,6 @@ public class GridCell {
     }
 
     public boolean isRevealed() {
-        return true;
+        return this.cell.isRevealed();
     }
 }

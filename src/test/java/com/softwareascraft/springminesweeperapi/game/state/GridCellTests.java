@@ -39,6 +39,7 @@ public class GridCellTests {
     void gridCellWithMineCellContainsMine() {
         GridCell gridCell = GridCell.withMine(0, 0);
         assertThat(gridCell.containsMine()).isTrue();
+        assertThat(gridCell.isRevealed()).isFalse();
     }
 
     @Test
@@ -46,10 +47,4 @@ public class GridCellTests {
         GridCell gridCell = GridCell.withRevealedCell(0,0);
         assertThat(gridCell.isRevealed()).isTrue();
     }
-
-//    @Test
-//    void gridCellWithMineCellContainsMine() {
-//        GridCell gridCell = GridCell.withMine(0, 0);
-//        assertThat(gridCell.containsMine()).isTrue();
-//    }
 }
