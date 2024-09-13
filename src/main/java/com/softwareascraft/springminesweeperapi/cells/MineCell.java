@@ -7,17 +7,12 @@ public class MineCell extends FlaggableCell<MineCell> {
     }
 
     public MineCell(boolean showsFlag) {
-        super(showsFlag);
+        super(showsFlag, 0);
     }
 
     @Override
     public boolean containsMine() {
         return true;
-    }
-
-    @Override
-    public int adjacentMines() {
-        return 1;
     }
 
     @Override
