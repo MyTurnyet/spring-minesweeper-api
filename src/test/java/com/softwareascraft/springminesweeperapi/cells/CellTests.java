@@ -29,6 +29,12 @@ public class CellTests {
     }
 
     @Test
+    void isNotInGivenColumn() {
+        Cell gridCell = new EmptyCell(0, 0);
+        assertThat(gridCell.isAt(0, 1)).isFalse();
+    }
+
+    @Test
     void setCellAsMine() {
         Cell cell = new MineCell(0, 0);
         boolean isMine = cell.containsMine();

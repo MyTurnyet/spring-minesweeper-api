@@ -14,7 +14,7 @@ public abstract class FlaggableCell<T> implements Cell {
 
     @Override
     public boolean isAt(int row, int column) {
-        return this.row == row;
+        return this.row == row && this.column == column;
     }
 
     @Override
