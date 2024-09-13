@@ -6,5 +6,5 @@ public interface Cell {
 
     boolean isRevealed();
 
-    int adjacentMines();
+    boolean isAt(int row, int column);
 }

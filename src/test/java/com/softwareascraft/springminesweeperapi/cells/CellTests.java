@@ -16,16 +16,9 @@ public class CellTests {
     }
 
     @Test
-    void newCellHasNoAdjacentMines() {
+    void newCellIsAtZeroZero() {
         Cell cell = new EmptyCell();
-        assertThat(cell.adjacentMines()).isEqualTo(0);
-    }
-
-    @Test
-    void newCellHasTwoAdjacentMines() {
-        int adjacentMines = 2;
-        Cell cell = new EmptyCell(adjacentMines);
-        assertThat(cell.adjacentMines()).isEqualTo(2);
+        assertThat(cell.isAt(0, 0)).isTrue();
     }
 
     @Test

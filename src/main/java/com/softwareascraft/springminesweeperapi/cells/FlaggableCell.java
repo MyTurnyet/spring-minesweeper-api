@@ -11,6 +11,11 @@ public abstract class FlaggableCell<T> implements Cell {
     }
 
     @Override
+    public boolean isAt(int row, int column) {
+        return true;
+    }
+
+    @Override
     public abstract boolean containsMine();
 
     public boolean isFlagged() {

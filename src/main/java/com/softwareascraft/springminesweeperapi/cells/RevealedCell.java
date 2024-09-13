@@ -22,6 +22,12 @@ public class RevealedCell implements Cell {
         return true;
     }
 
+    // TODO
+    @Override
+    public boolean isAt(int row, int column) {
+        return false;
+    }
+
     public int adjacentMines() {
         return neighboringMinesCount;
     }
