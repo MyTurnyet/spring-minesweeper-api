@@ -8,11 +8,11 @@ import com.softwareascraft.springminesweeperapi.cells.RevealedCell;
 public class GridCell {
 
     public static GridCell empty(int row, int column) {
-        return new GridCell(row, column, new EmptyCell());
+        return new GridCell(row, column, new EmptyCell(0, 0));
     }
 
     public static GridCell withMine(int row, int column) {
-        return new GridCell(row, column, new MineCell());
+        return new GridCell(row, column, new MineCell(0, 0));
     }
 
     public static GridCell withRevealedCell(int row, int column, int neighboringMines) {

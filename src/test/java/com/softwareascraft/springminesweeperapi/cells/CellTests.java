@@ -1,5 +1,6 @@
 package com.softwareascraft.springminesweeperapi.cells;
 
+import com.softwareascraft.springminesweeperapi.game.state.GridCell;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -10,41 +11,47 @@ public class CellTests {
 
     @Test
     void newCellDoesNotContainMine() {
-        Cell cell = new EmptyCell();
+        Cell cell = new EmptyCell(0, 0);
         boolean isMine = cell.containsMine();
         assertThat(isMine).isFalse();
     }
 
     @Test
     void newCellIsAtZeroZero() {
-        Cell cell = new EmptyCell();
+        Cell cell = new EmptyCell(0, 0);
         assertThat(cell.isAt(0, 0)).isTrue();
     }
 
     @Test
+    void isNotInGivenRow() {
+        Cell gridCell = new EmptyCell(0, 0);
+        assertThat(gridCell.isAt(1, 0)).isFalse();
+    }
+
+    @Test
     void setCellAsMine() {
-        Cell cell = new MineCell();
+        Cell cell = new MineCell(0, 0);
         boolean isMine = cell.containsMine();
         assertThat(isMine).isTrue();
     }
 
     @Test
     void cellDoesNotShowFlagByDefault() {
-        FlaggableCell cell = new EmptyCell();
+        FlaggableCell cell = new EmptyCell(0, 0);
         boolean isFlagged = cell.isFlagged();
         assertThat(isFlagged).isFalse();
     }
 
     @Test
     void cellShowsFlag() {
-        FlaggableCell<EmptyCell> cell = new EmptyCell(true);
+        FlaggableCell<EmptyCell> cell = new EmptyCell(true, 0, 0);
         boolean isFlagged = cell.isFlagged();
         assertThat(isFlagged).isTrue();
     }
 
     @Test
     void cellRemovesFlag() {
-        FlaggableCell<EmptyCell> cell = new EmptyCell(true);
+        FlaggableCell<EmptyCell> cell = new EmptyCell(true, 0, 0);
         FlaggableCell<EmptyCell> removedFlag = cell.removeFlag();
         boolean isFlagged = removedFlag.isFlagged();
         assertThat(isFlagged).isFalse();
@@ -52,7 +59,7 @@ public class CellTests {
 
     @Test
     void cellAddsFlag() {
-        FlaggableCell<EmptyCell> cell = new EmptyCell(false);
+        FlaggableCell<EmptyCell> cell = new EmptyCell(false, 0, 0);
         FlaggableCell<EmptyCell> addFlag = cell.addFlag();
         boolean isFlagged = addFlag.isFlagged();
         assertThat(isFlagged).isTrue();
@@ -60,7 +67,7 @@ public class CellTests {
 
     @Test
     void mineCellAddsFlag() {
-        FlaggableCell<MineCell> cell = new MineCell(false);
+        FlaggableCell<MineCell> cell = new MineCell(false, 0, 0);
         FlaggableCell<MineCell> addFlag = cell.addFlag();
         boolean isFlagged = addFlag.isFlagged();
         assertThat(isFlagged).isTrue();
@@ -69,7 +76,7 @@ public class CellTests {
 
     @Test
     void flaggableCellIsNotRevealed() {
-        FlaggableCell<MineCell> cell = new MineCell(false);
+        FlaggableCell<MineCell> cell = new MineCell(false, 0, 0);
         assertThat(cell.isRevealed()).isFalse();
     }
 }

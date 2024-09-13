@@ -2,20 +2,12 @@ package com.softwareascraft.springminesweeperapi.cells;
 
 public class EmptyCell extends FlaggableCell<EmptyCell> {
 
-    public EmptyCell() {
-        this(false, 0);
+    public EmptyCell(int row, int column) {
+        this(false, row, column);
     }
 
-    public EmptyCell(int adjacentMines) {
-        this(false, adjacentMines);
-    }
-
-    public EmptyCell(boolean showsFlag) {
-        this(showsFlag, 0);
-    }
-
-    public EmptyCell(boolean showsFlag, int adjacentMines) {
-        super(showsFlag, adjacentMines);
+    public EmptyCell(boolean showsFlag, int row, int column) {
+        super(showsFlag, row, column);
     }
 
     @Override
@@ -25,12 +17,12 @@ public class EmptyCell extends FlaggableCell<EmptyCell> {
 
     @Override
     public EmptyCell removeFlag() {
-        return new EmptyCell(false);
+        return new EmptyCell(false, this.row, this.column);
     }
 
     @Override
     public EmptyCell addFlag() {
-        return new EmptyCell(true);
+        return new EmptyCell(true, this.row, this.column);
     }
 
 }

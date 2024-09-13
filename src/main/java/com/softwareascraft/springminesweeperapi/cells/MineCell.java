@@ -2,12 +2,12 @@ package com.softwareascraft.springminesweeperapi.cells;
 
 public class MineCell extends FlaggableCell<MineCell> {
 
-    public MineCell() {
-        this(false);
+    public MineCell(int row, int column) {
+        this(false, row, column);
     }
 
-    public MineCell(boolean showsFlag) {
-        super(showsFlag, 0);
+    public MineCell(boolean showsFlag, int row, int column) {
+        super(showsFlag, row, column);
     }
 
     @Override
@@ -17,12 +17,12 @@ public class MineCell extends FlaggableCell<MineCell> {
 
     @Override
     public MineCell removeFlag() {
-        return new MineCell(false);
+        return new MineCell(false, this.row, this.column);
     }
 
     @Override
     public MineCell addFlag() {
-        return new MineCell(true);
+        return new MineCell(true, this.row, this.column);
     }
 
 }

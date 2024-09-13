@@ -3,16 +3,18 @@ package com.softwareascraft.springminesweeperapi.cells;
 public abstract class FlaggableCell<T> implements Cell {
 
     protected boolean showsFlag;
-    protected final int adjacentMines;
+    protected final int row;
+    protected final int column;
 
-    public FlaggableCell(boolean showsFlag, int adjacentMines) {
+    public FlaggableCell(boolean showsFlag, int row, int column) {
         this.showsFlag = showsFlag;
-        this.adjacentMines = adjacentMines;
+        this.row = row;
+        this.column = column;
     }
 
     @Override
     public boolean isAt(int row, int column) {
-        return true;
+        return this.row == row;
     }
 
     @Override
@@ -25,11 +27,6 @@ public abstract class FlaggableCell<T> implements Cell {
     @Override
     public boolean isRevealed() {
         return false;
-    }
-
-    @Override
-    public int adjacentMines() {
-        return this.adjacentMines;
     }
 
     public abstract T removeFlag();
