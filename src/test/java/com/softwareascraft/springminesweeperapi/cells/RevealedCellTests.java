@@ -25,4 +25,10 @@ public class RevealedCellTests {
         RevealedCell revealedCell = new RevealedCell(4);
         assertThat(revealedCell.adjacentMines()).isEqualTo(4);
     }
+
+    @Test
+    void isAtPassedInLocation() {
+        Cell cell = new RevealedCell();
+        assertThat(cell.isAt(0, 0)).isTrue();
+    }
 }
