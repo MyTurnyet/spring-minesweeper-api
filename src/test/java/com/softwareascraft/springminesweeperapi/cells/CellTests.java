@@ -9,14 +9,21 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CellTests {
 
     @Test
-    void newCellDoesNotContainMine() {
+    void emptyCellDoesNotContainMine() {
         Cell cell = new EmptyCell(0, 0);
         boolean isMine = cell.containsMine();
         assertThat(isMine).isFalse();
     }
 
     @Test
-    void newCellIsAtZeroZero() {
+    void mineCellContainsMine() {
+        Cell cell = new MineCell(0, 0);
+        boolean isMine = cell.containsMine();
+        assertThat(isMine).isTrue();
+    }
+
+    @Test
+    void isAtPassedInLocation() {
         Cell cell = new EmptyCell(0, 0);
         assertThat(cell.isAt(0, 0)).isTrue();
     }
@@ -34,48 +41,36 @@ public class CellTests {
     }
 
     @Test
-    void setCellAsMine() {
-        Cell cell = new MineCell(0, 0);
-        boolean isMine = cell.containsMine();
-        assertThat(isMine).isTrue();
-    }
-
-    @Test
-    void cellDoesNotShowFlagByDefault() {
-        FlaggableCell cell = new EmptyCell(0, 0);
-        boolean isFlagged = cell.isFlagged();
-        assertThat(isFlagged).isFalse();
+    void doesNotShowFlagByDefault() {
+        FlaggableCell<EmptyCell> cell = new EmptyCell(0, 0);
+        assertThat(cell.isFlagged()).isFalse();
     }
 
     @Test
     void cellShowsFlag() {
         FlaggableCell<EmptyCell> cell = new EmptyCell(true, 0, 0);
-        boolean isFlagged = cell.isFlagged();
-        assertThat(isFlagged).isTrue();
+        assertThat(cell.isFlagged()).isTrue();
     }
 
     @Test
     void cellRemovesFlag() {
         FlaggableCell<EmptyCell> cell = new EmptyCell(true, 0, 0);
         FlaggableCell<EmptyCell> removedFlag = cell.removeFlag();
-        boolean isFlagged = removedFlag.isFlagged();
-        assertThat(isFlagged).isFalse();
+        assertThat(removedFlag.isFlagged()).isFalse();
     }
 
     @Test
     void cellAddsFlag() {
         FlaggableCell<EmptyCell> cell = new EmptyCell(false, 0, 0);
         FlaggableCell<EmptyCell> addFlag = cell.addFlag();
-        boolean isFlagged = addFlag.isFlagged();
-        assertThat(isFlagged).isTrue();
+        assertThat(addFlag.isFlagged()).isTrue();
     }
 
     @Test
     void mineCellAddsFlag() {
         FlaggableCell<MineCell> cell = new MineCell(false, 0, 0);
         FlaggableCell<MineCell> addFlag = cell.addFlag();
-        boolean isFlagged = addFlag.isFlagged();
-        assertThat(isFlagged).isTrue();
+        assertThat(addFlag.isFlagged()).isTrue();
         assertThat(addFlag.containsMine()).isTrue();
     }
 

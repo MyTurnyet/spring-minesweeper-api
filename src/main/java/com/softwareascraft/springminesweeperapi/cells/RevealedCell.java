@@ -4,12 +4,12 @@ public class RevealedCell implements Cell {
 
     private final int neighboringMinesCount;
 
-    public RevealedCell(int neighboringMinesCount) {
-        this.neighboringMinesCount = neighboringMinesCount;
-    }
-
     public RevealedCell() {
         this(0);
+    }
+
+    public RevealedCell(int neighboringMinesCount) {
+        this.neighboringMinesCount = neighboringMinesCount;
     }
 
     @Override
