@@ -1,6 +1,5 @@
 package com.softwareascraft.springminesweeperapi.cells;
 
-import com.softwareascraft.springminesweeperapi.game.state.GridCell;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
