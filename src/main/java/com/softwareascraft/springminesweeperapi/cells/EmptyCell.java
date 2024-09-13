@@ -16,6 +16,11 @@ public class EmptyCell extends FlaggableCell<EmptyCell> {
     }
 
     @Override
+    public int adjacentMines() {
+        return 0;
+    }
+
+    @Override
     public EmptyCell removeFlag() {
         return new EmptyCell(false);
     }

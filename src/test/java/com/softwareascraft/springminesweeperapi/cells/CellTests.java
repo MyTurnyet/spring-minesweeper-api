@@ -16,6 +16,12 @@ public class CellTests {
     }
 
     @Test
+    void newCellHasNoAdjacentMines() {
+        Cell cell = new EmptyCell();
+        assertThat(cell.adjacentMines()).isEqualTo(0);
+    }
+
+    @Test
     void setCellAsMine() {
         Cell cell = new MineCell();
         boolean isMine = cell.containsMine();

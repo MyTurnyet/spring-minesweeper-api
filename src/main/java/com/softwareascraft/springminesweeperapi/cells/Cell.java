@@ -5,4 +5,6 @@ public interface Cell {
     boolean containsMine();
 
     boolean isRevealed();
+
+    int adjacentMines();
 }

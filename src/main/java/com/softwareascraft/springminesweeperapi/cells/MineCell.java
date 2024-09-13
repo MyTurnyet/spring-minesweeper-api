@@ -16,6 +16,11 @@ public class MineCell extends FlaggableCell<MineCell> {
     }
 
     @Override
+    public int adjacentMines() {
+        return 1;
+    }
+
+    @Override
     public MineCell removeFlag() {
         return new MineCell(false);
     }
