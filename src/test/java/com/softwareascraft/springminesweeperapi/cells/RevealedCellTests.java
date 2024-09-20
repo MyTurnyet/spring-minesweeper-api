@@ -38,9 +38,9 @@ public class RevealedCellTests {
         assertThat(cell.isAt(1, 0)).isFalse();
     }
 
-//    @Test
-//    void isNotInGivenColumn() {
-//        Cell gridCell = new EmptyCell(0, 0);
-//        assertThat(gridCell.isAt(0, 1)).isFalse();
-//    }
+    @Test
+    void isNotInGivenColumn() {
+        Cell cell = new RevealedCell(0, 0, 0);
+        assertThat(cell.isAt(0, 1)).isFalse();
+    }
 }

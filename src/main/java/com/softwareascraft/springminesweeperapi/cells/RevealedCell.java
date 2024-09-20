@@ -23,10 +23,9 @@ public class RevealedCell implements Cell {
         return true;
     }
 
-    // TODO
-    @Override
+
     public boolean isAt(int row, int column) {
-        return this.row == row;
+        return this.row == row && this.column == column;
     }
 
     public int adjacentMines() {
