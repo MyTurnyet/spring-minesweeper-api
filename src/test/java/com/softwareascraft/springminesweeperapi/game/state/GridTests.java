@@ -9,11 +9,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Tag("Unit")
 public class GridTests {
     @Test
-    void oneByOneGrid_ReturnsListOf1Cell() {
+    void oneByOneGrid_ReturnsListOf1CellWith0Mines() {
         Grid grid = new Grid(1, 1, 0);
         grid.setup();
+        int mineCount = (int) grid.cells().stream().filter(Cell::containsMine).count();
+        assertThat(mineCount).isEqualTo(0);
         assertThat(grid.cells()).hasSize(1);
     }
+
     @Test
     void twoByTwoGrid_ReturnsListOf4Cells() {
         Grid grid = new Grid(2, 2, 0);
@@ -25,7 +28,7 @@ public class GridTests {
     void returnsListWith1MineCell() {
         Grid grid = new Grid(1, 1, 1);
         grid.setup();
-        int count = (int) grid.cells().stream().filter(Cell::containsMine).count();
-        assertThat(count).isEqualTo(1);
+        int mineCount = (int) grid.cells().stream().filter(Cell::containsMine).count();
+        assertThat(mineCount).isEqualTo(1);
     }
 }

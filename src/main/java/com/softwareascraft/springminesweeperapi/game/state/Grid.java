@@ -11,11 +11,13 @@ public class Grid {
 
     private final int rows;
     private final int columns;
+    private final int mineCount;
     private List<Cell> cellsList;
 
     public Grid(int rows, int columns, int mineCount) {
         this.rows = rows;
         this.columns = columns;
+        this.mineCount = mineCount;
     }
 
     public List<Cell> cells() {
@@ -24,8 +26,14 @@ public class Grid {
 
     public void setup() {
         cellsList = new ArrayList<>();
+        int numberOfMinesAdded = 0;
         for (int i = 0; i < (rows * columns); i++) {
-            cellsList.add(new MineCell(false, 0, 0));
+            if (numberOfMinesAdded < mineCount) {
+                cellsList.add(new MineCell(false, 0, 0));
+                numberOfMinesAdded++;
+                continue;
+            }
+            cellsList.add(new EmptyCell(false, 0, 0));
         }
     }
 }
