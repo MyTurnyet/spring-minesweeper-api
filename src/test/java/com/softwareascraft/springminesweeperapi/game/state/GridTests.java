@@ -17,4 +17,5 @@ public class GridTests {
         Grid grid = new Grid(2, 2);
         assertThat(grid.cells()).hasSize(4);
     }
+
 }

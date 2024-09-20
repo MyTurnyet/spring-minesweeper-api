@@ -12,6 +12,7 @@ public class Grid {
 
     private final int rows;
     private final int columns;
+    private List<Cell> cellsList;
 
     public Grid(int rows, int columns) {
         this.rows = rows;
@@ -19,10 +20,14 @@ public class Grid {
     }
 
     public List<Cell> cells() {
-        List<Cell> cellsList = new ArrayList<>();
+        setup();
+        return cellsList;
+    }
+
+    public void setup() {
+        cellsList = new ArrayList<>();
         for (int i = 0; i < (rows * columns); i++) {
             cellsList.add(new EmptyCell(false, 0, 0));
         }
-        return cellsList;
     }
 }
