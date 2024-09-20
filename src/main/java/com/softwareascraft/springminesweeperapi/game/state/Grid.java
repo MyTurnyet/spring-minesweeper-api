@@ -20,7 +20,6 @@ public class Grid {
     }
 
     public List<Cell> cells() {
-        setup();
         return cellsList;
     }
 
