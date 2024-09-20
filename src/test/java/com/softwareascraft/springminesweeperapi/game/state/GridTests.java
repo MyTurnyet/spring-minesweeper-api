@@ -18,9 +18,19 @@ public class GridTests {
     }
 
     @Test
-    void twoByTwoGrid_ReturnsListOf4Cells() {
+    void twoByTwoGrid_ReturnsListOf4CellsWith0Mines() {
         Grid grid = new Grid(2, 2, 0);
         grid.setup();
+        int mineCount = (int) grid.cells().stream().filter(Cell::containsMine).count();
+        assertThat(mineCount).isEqualTo(0);
+        assertThat(grid.cells()).hasSize(4);
+    }
+    @Test
+    void twoByTwoGrid_ReturnsListOf4CellsWith2Mines() {
+        Grid grid = new Grid(2, 2, 2);
+        grid.setup();
+        int mineCount = (int) grid.cells().stream().filter(Cell::containsMine).count();
+        assertThat(mineCount).isEqualTo(2);
         assertThat(grid.cells()).hasSize(4);
     }
 

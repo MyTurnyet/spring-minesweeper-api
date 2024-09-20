@@ -28,12 +28,16 @@ public class Grid {
         cellsList = new ArrayList<>();
         int numberOfMinesAdded = 0;
         for (int i = 0; i < (rows * columns); i++) {
-            if (numberOfMinesAdded < mineCount) {
-                cellsList.add(new MineCell(false, 0, 0));
-                numberOfMinesAdded++;
-                continue;
-            }
-            cellsList.add(new EmptyCell(false, 0, 0));
+            createCellAt(0, 0, numberOfMinesAdded);
         }
+    }
+
+    private void createCellAt(int row, int column, int numberOfMinesAdded) {
+        if (numberOfMinesAdded < mineCount) {
+            cellsList.add(new MineCell(false, row, column));
+            return;
+        }
+        cellsList.add(new EmptyCell(false, row, column));
+
     }
 }
