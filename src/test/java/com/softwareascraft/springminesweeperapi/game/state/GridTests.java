@@ -11,6 +11,10 @@ public class GridTests {
     void oneByOneGrid_ReturnsListOf1Cell() {
         Grid grid = new Grid(1, 1);
         assertThat(grid.cells()).hasSize(1);
-
+    }
+    @Test
+    void twoByTwoGrid_ReturnsListOf4Cells() {
+        Grid grid = new Grid(2, 2);
+        assertThat(grid.cells()).hasSize(4);
     }
 }
