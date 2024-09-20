@@ -6,7 +6,6 @@ public class RevealedCell implements Cell {
     private final int row;
     private final int column;
 
-
     public RevealedCell(int neighboringMinesCount, int row, int column) {
         this.neighboringMinesCount = neighboringMinesCount;
         this.row = row;
@@ -23,7 +22,7 @@ public class RevealedCell implements Cell {
         return true;
     }
 
-
+    @Override
     public boolean isAt(int row, int column) {
         return this.row == row && this.column == column;
     }
