@@ -3,13 +3,14 @@ package com.softwareascraft.springminesweeperapi.cells;
 public class RevealedCell implements Cell {
 
     private final int neighboringMinesCount;
+    private final int row;
+    private final int column;
 
-    public RevealedCell() {
-        this(0);
-    }
 
-    public RevealedCell(int neighboringMinesCount) {
+    public RevealedCell(int neighboringMinesCount, int row, int column) {
         this.neighboringMinesCount = neighboringMinesCount;
+        this.row = row;
+        this.column = column;
     }
 
     @Override
@@ -25,7 +26,7 @@ public class RevealedCell implements Cell {
     // TODO
     @Override
     public boolean isAt(int row, int column) {
-        return true;
+        return this.row == row;
     }
 
     public int adjacentMines() {
