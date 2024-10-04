@@ -26,18 +26,20 @@ public class Grid {
 
     public void setup() {
         cellsList = new ArrayList<>();
-        int numberOfMinesAdded = 0;
         for (int i = 0; i < (rows * columns); i++) {
-            createCellAt(0, 0, numberOfMinesAdded++);
+            createCellAt(0, 0);
         }
     }
 
-    private void createCellAt(int row, int column, int numberOfMinesAdded) {
-        if (numberOfMinesAdded < mineCount) {
+    private void createCellAt(int row, int column) {
+        if (currentNumberOfMines() < mineCount) {
             cellsList.add(new MineCell(false, row, column));
             return;
         }
         cellsList.add(new EmptyCell(false, row, column));
+    }
 
+    private int currentNumberOfMines() {
+        return (int) cellsList.stream().filter(Cell::containsMine).count();
     }
 }
