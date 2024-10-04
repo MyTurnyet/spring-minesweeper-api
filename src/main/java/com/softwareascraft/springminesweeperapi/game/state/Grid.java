@@ -30,8 +30,10 @@ public class Grid {
 
     public void setup() {
         cellsList = new ArrayList<>();
-        for (int i = 0; i < (rows * columns); i++) {
-            createCellAt(0, 0);
+        for (int row = 0; row < rows; row++) {
+            for (int column = 0; column < columns; column++) {
+                createCellAt(row, column);
+            }
         }
     }
 

@@ -56,4 +56,18 @@ public class GridTests {
         grid.setup();
         assertThat(grid.remainingMines()).isEqualTo(2);
     }
+
+    @Test
+    void cellsKnowTheirCoordinates() {
+        Grid grid = new Grid(2, 2, 1);
+        grid.setup();
+        Cell cell0 = grid.cells().get(0);
+        Cell cell1 = grid.cells().get(1);
+        Cell cell2 = grid.cells().get(2);
+        Cell cell3 = grid.cells().get(3);
+        assertThat(cell0.isAt(0, 0)).isTrue();
+        assertThat(cell1.isAt(0, 1)).isTrue();
+        assertThat(cell2.isAt(1, 0)).isTrue();
+        assertThat(cell3.isAt(1, 1)).isTrue();
+    }
 }
