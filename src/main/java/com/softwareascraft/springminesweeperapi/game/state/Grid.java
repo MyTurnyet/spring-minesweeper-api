@@ -28,7 +28,7 @@ public class Grid {
         cellsList = new ArrayList<>();
         int numberOfMinesAdded = 0;
         for (int i = 0; i < (rows * columns); i++) {
-            createCellAt(0, 0, numberOfMinesAdded);
+            createCellAt(0, 0, numberOfMinesAdded++);
         }
     }
 

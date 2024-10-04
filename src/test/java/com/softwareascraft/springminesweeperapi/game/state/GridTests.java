@@ -25,6 +25,7 @@ public class GridTests {
         assertThat(mineCount).isEqualTo(0);
         assertThat(grid.cells()).hasSize(4);
     }
+
     @Test
     void twoByTwoGrid_ReturnsListOf4CellsWith2Mines() {
         Grid grid = new Grid(2, 2, 2);
