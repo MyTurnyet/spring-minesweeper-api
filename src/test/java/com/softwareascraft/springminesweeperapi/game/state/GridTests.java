@@ -49,4 +49,11 @@ public class GridTests {
         grid.setup();
         assertThat(grid.remainingMines()).isEqualTo(1);
     }
+
+    @Test
+    void twoByTwoGridWithTwoMines_ReturnsTwoUnflaggedMines() {
+        Grid grid = new Grid(2, 2, 2);
+        grid.setup();
+        assertThat(grid.remainingMines()).isEqualTo(2);
+    }
 }

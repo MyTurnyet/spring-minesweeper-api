@@ -25,7 +25,7 @@ public class Grid {
     }
 
     public int remainingMines() {
-        return 1;
+        return mineCount;
     }
 
     public void setup() {
