@@ -28,6 +28,10 @@ public class Grid {
         return mineCount;
     }
 
+    public Grid flag(Cell cell) {
+        return this;
+    }
+
     public void setup() {
         cellsList = new ArrayList<>();
         for (int row = 0; row < rows; row++) {

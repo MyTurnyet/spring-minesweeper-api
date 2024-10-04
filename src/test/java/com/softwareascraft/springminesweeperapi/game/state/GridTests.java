@@ -70,4 +70,13 @@ public class GridTests {
         assertThat(cell2.isAt(1, 0)).isTrue();
         assertThat(cell3.isAt(1, 1)).isTrue();
     }
+
+    @Test
+    void applesauce() {
+        Grid grid = new Grid(2, 2, 1);
+        grid.setup();
+        Cell cell = grid.cells().get(0);
+        Grid flaggedGrid = grid.flag(cell);
+        assertThat(flaggedGrid.remainingMines()).isEqualTo(0);
+    }
 }
