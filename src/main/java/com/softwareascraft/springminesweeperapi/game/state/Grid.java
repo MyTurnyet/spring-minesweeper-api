@@ -24,6 +24,10 @@ public class Grid {
         return cellsList;
     }
 
+    public int remainingMines() {
+        return 1;
+    }
+
     public void setup() {
         cellsList = new ArrayList<>();
         for (int i = 0; i < (rows * columns); i++) {

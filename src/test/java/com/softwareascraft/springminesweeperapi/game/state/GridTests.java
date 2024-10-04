@@ -42,4 +42,11 @@ public class GridTests {
         int mineCount = (int) grid.cells().stream().filter(Cell::containsMine).count();
         assertThat(mineCount).isEqualTo(1);
     }
+
+    @Test
+    void twoByTwoGridWithOneMine_ReturnsOneUnflaggedMine() {
+        Grid grid = new Grid(2, 2, 1);
+        grid.setup();
+        assertThat(grid.remainingMines()).isEqualTo(1);
+    }
 }
