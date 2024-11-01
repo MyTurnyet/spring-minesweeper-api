@@ -25,7 +25,6 @@ public class Grid {
     }
 
     public int remainingMines() {
-
         long count = cells().stream().filter(Cell::containsMine).count();
         return (int) count;
     }

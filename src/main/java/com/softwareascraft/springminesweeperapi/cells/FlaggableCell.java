@@ -22,12 +22,10 @@ public abstract class FlaggableCell<T> implements Cell {
         return false;
     }
 
+    @Override
     public boolean isFlagged() {
         return this.showsFlag;
     }
-
-    @Override
-    public abstract boolean containsMine();
 
     public abstract T removeFlag();
 
