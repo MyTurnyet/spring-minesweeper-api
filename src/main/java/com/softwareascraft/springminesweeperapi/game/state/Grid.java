@@ -29,8 +29,14 @@ public class Grid {
     }
 
     public Grid flag(Cell cell) {
-        Grid grid = new Grid(this.rows, this.columns, 0);
-            return grid;
+        int remainingMines = remainingMines();
+        if(cell.containsMine()){
+            remainingMines--;
+        }
+        //get flag cell at the same location
+
+        Grid grid = new Grid(this.rows, this.columns, remainingMines);
+        return grid;
     }
 
     public void setup() {

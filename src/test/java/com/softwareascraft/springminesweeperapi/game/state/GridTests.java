@@ -79,4 +79,12 @@ public class GridTests {
         Grid flaggedGrid = grid.flag(cell);
         assertThat(flaggedGrid.remainingMines()).isZero();
     }
+    @Test
+    void AfterFlaggingReturnNewMineCount() {
+        Grid grid = new Grid(2, 2, 2);
+        grid.setup();
+        Cell cell = grid.cells().get(0);
+        Grid flaggedGrid = grid.flag(cell);
+        assertThat(flaggedGrid.remainingMines()).isEqualTo(1);
+    }
 }
