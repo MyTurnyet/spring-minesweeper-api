@@ -25,7 +25,9 @@ public class Grid {
     }
 
     public int remainingMines() {
-        return mineCount;
+
+        long count = cells().stream().filter(Cell::containsMine).count();
+        return (int) count;
     }
 
     public Grid flag(Cell cell) {
@@ -36,6 +38,7 @@ public class Grid {
         //get flag cell at the same location
 
         Grid grid = new Grid(this.rows, this.columns, remainingMines);
+        grid.setup();
         return grid;
     }
 
