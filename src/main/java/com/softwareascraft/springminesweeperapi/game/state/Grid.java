@@ -9,6 +9,12 @@ import java.util.List;
 
 public class Grid {
 
+    public static Grid create(int rows, int columns, int mineCount) {
+        Grid grid = new Grid(rows, columns, mineCount);
+        grid.setup();
+        return grid;
+    }
+
     private final int rows;
     private final int columns;
     private final int mineCount;
@@ -31,7 +37,7 @@ public class Grid {
 
     public Grid flag(Cell cell) {
         int remainingMines = remainingMines();
-        if(cell.containsMine()){
+        if (cell.containsMine()) {
             remainingMines--;
         }
         //get flag cell at the same location
