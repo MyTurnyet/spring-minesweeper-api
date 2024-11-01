@@ -15,15 +15,28 @@ public class Grid {
     private List<Cell> cellsList;
 
     public static Grid create(int rows, int columns, int mineCount) {
-        Grid grid = new Grid(rows, columns, mineCount);
-        grid.setup();
+        ArrayList<Cell> cells = new ArrayList<>();
+        int addedMines = 0;
+        for (int row = 0; row < rows; row++) {
+            for (int column = 0; column < columns; column++) {
+                if (addedMines < mineCount) {
+                    addedMines++;
+                    cells.add(new MineCell(false, row, column));
+                    continue;
+                }
+                cells.add(new EmptyCell(false, row, column));
+
+            }
+        }
+        Grid grid = new Grid(rows, columns, mineCount, cells);
         return grid;
     }
 
-    private Grid(int rows, int columns, int mineCount) {
+    private Grid(int rows, int columns, int mineCount, List<Cell> cells) {
         this.rows = rows;
         this.columns = columns;
         this.mineCount = mineCount;
+        this.cellsList = cells;
     }
 
     public List<Cell> cells() {
@@ -42,29 +55,8 @@ public class Grid {
         }
         //get flag cell at the same location
 
-        Grid grid = new Grid(this.rows, this.columns, remainingMines);
-        grid.setup();
+        Grid grid =  Grid.create(this.rows, this.columns, remainingMines);
+
         return grid;
-    }
-
-    private void setup() {
-        cellsList = new ArrayList<>();
-        for (int row = 0; row < rows; row++) {
-            for (int column = 0; column < columns; column++) {
-                createCellAt(row, column);
-            }
-        }
-    }
-
-    private void createCellAt(int row, int column) {
-        if (currentNumberOfMines() < mineCount) {
-            cellsList.add(new MineCell(false, row, column));
-            return;
-        }
-        cellsList.add(new EmptyCell(false, row, column));
-    }
-
-    private int currentNumberOfMines() {
-        return (int) cellsList.stream().filter(Cell::containsMine).count();
     }
 }
