@@ -9,16 +9,16 @@ import java.util.List;
 
 public class Grid {
 
+    private final int rows;
+    private final int columns;
+    private final int mineCount;
+    private List<Cell> cellsList;
+
     public static Grid create(int rows, int columns, int mineCount) {
         Grid grid = new Grid(rows, columns, mineCount);
         grid.setup();
         return grid;
     }
-
-    private final int rows;
-    private final int columns;
-    private final int mineCount;
-    private List<Cell> cellsList;
 
     private Grid(int rows, int columns, int mineCount) {
         this.rows = rows;
