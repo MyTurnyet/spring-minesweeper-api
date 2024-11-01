@@ -10,8 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GridTests {
     @Test
     void oneByOneGrid_ReturnsListOf1CellWith0Mines() {
-        Grid grid = new Grid(1, 1, 0);
-        grid.setup();
+        Grid grid = Grid.create(1, 1, 0);
         int mineCount = (int) grid.cells().stream().filter(Cell::containsMine).count();
         assertThat(mineCount).isEqualTo(0);
         assertThat(grid.cells()).hasSize(1);
@@ -19,8 +18,7 @@ public class GridTests {
 
     @Test
     void twoByTwoGrid_ReturnsListOf4CellsWith0Mines() {
-        Grid grid = new Grid(2, 2, 0);
-        grid.setup();
+        Grid grid = Grid.create(2, 2, 0);
         int mineCount = (int) grid.cells().stream().filter(Cell::containsMine).count();
         assertThat(mineCount).isEqualTo(0);
         assertThat(grid.cells()).hasSize(4);
@@ -28,8 +26,7 @@ public class GridTests {
 
     @Test
     void twoByTwoGrid_ReturnsListOf4CellsWith2Mines() {
-        Grid grid = new Grid(2, 2, 2);
-        grid.setup();
+        Grid grid = Grid.create(2, 2, 2);
         int mineCount = (int) grid.cells().stream().filter(Cell::containsMine).count();
         assertThat(mineCount).isEqualTo(2);
         assertThat(grid.cells()).hasSize(4);
@@ -37,30 +34,26 @@ public class GridTests {
 
     @Test
     void returnsListWith1MineCell() {
-        Grid grid = new Grid(1, 1, 1);
-        grid.setup();
+        Grid grid = Grid.create(1, 1, 1);
         int mineCount = (int) grid.cells().stream().filter(Cell::containsMine).count();
         assertThat(mineCount).isEqualTo(1);
     }
 
     @Test
     void twoByTwoGridWithOneMine_ReturnsOneUnflaggedMine() {
-        Grid grid = new Grid(2, 2, 1);
-        grid.setup();
+        Grid grid = Grid.create(2, 2, 1);
         assertThat(grid.remainingMines()).isEqualTo(1);
     }
 
     @Test
     void twoByTwoGridWithTwoMines_ReturnsTwoUnflaggedMines() {
-        Grid grid = new Grid(2, 2, 2);
-        grid.setup();
+        Grid grid = Grid.create(2, 2, 2);
         assertThat(grid.remainingMines()).isEqualTo(2);
     }
 
     @Test
     void cellsKnowTheirCoordinates() {
-        Grid grid = new Grid(2, 2, 1);
-        grid.setup();
+        Grid grid = Grid.create(2, 2, 1);
         Cell cell0 = grid.cells().get(0);
         Cell cell1 = grid.cells().get(1);
         Cell cell2 = grid.cells().get(2);
@@ -73,16 +66,15 @@ public class GridTests {
 
     @Test
     void flaggingMineDecrementsMineCount() {
-        Grid grid = new Grid(2, 2, 1);
-        grid.setup();
+        Grid grid = Grid.create(2, 2, 1);
         Cell cell = grid.cells().get(0);
         Grid flaggedGrid = grid.flag(cell);
         assertThat(flaggedGrid.remainingMines()).isZero();
     }
+
     @Test
     void AfterFlaggingReturnNewMineCount() {
-        Grid grid = new Grid(2, 2, 2);
-        grid.setup();
+        Grid grid = Grid.create(2, 2, 2);
         Cell cell = grid.cells().get(0);
         Grid flaggedGrid = grid.flag(cell);
         assertThat(flaggedGrid.remainingMines()).isEqualTo(1);

@@ -20,7 +20,7 @@ public class Grid {
     private final int mineCount;
     private List<Cell> cellsList;
 
-    public Grid(int rows, int columns, int mineCount) {
+    private Grid(int rows, int columns, int mineCount) {
         this.rows = rows;
         this.columns = columns;
         this.mineCount = mineCount;
@@ -47,7 +47,7 @@ public class Grid {
         return grid;
     }
 
-    public void setup() {
+    private void setup() {
         cellsList = new ArrayList<>();
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
