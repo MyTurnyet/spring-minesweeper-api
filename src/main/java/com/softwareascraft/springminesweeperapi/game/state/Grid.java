@@ -29,7 +29,8 @@ public class Grid {
     }
 
     public Grid flag(Cell cell) {
-        return this;
+        Grid grid = new Grid(this.rows, this.columns, 0);
+            return grid;
     }
 
     public void setup() {

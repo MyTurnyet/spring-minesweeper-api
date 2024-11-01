@@ -72,11 +72,11 @@ public class GridTests {
     }
 
     @Test
-    void applesauce() {
+    void flaggingMineDecrementsMineCount() {
         Grid grid = new Grid(2, 2, 1);
         grid.setup();
         Cell cell = grid.cells().get(0);
         Grid flaggedGrid = grid.flag(cell);
-        assertThat(flaggedGrid.remainingMines()).isEqualTo(0);
+        assertThat(flaggedGrid.remainingMines()).isZero();
     }
 }
