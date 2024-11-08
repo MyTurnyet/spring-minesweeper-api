@@ -23,7 +23,7 @@ public class RevealedCell implements Cell {
     }
 
     @Override
-    public boolean isFlagged() {
+    public boolean hasFlag() {
         return false;
     }
 

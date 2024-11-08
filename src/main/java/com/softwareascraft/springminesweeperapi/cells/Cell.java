@@ -6,7 +6,7 @@ public interface Cell {
 
     boolean isRevealed();
 
-    boolean isFlagged();
+    boolean hasFlag();
 
     boolean isFlaggable();
 

@@ -23,7 +23,7 @@ public abstract class FlaggableCell<T> implements Cell {
     }
 
     @Override
-    public boolean isFlagged() {
+    public boolean hasFlag() {
         return this.showsFlag;
     }
 
