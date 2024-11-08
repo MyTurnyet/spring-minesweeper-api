@@ -93,4 +93,10 @@ public class CellTests {
         Cell cell2 = new EmptyCell(0, 0);
         assertThat(cell1.hasSameLocationAs(cell2)).isFalse();
     }
+
+    @Test
+    void cellIsFlaggable() {
+        FlaggableCell<EmptyCell> cell = new EmptyCell(0, 0);
+        assertThat(cell.isFlaggable()).isTrue();
+    }
 }

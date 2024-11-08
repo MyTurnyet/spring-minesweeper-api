@@ -8,6 +8,8 @@ public interface Cell {
 
     boolean isFlagged();
 
+    boolean isFlaggable();
+
     boolean isAt(int row, int column);
 
     boolean hasSameLocationAs(Cell otherCell);

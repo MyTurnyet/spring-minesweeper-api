@@ -28,6 +28,11 @@ public class RevealedCell implements Cell {
     }
 
     @Override
+    public boolean isFlaggable() {
+        return false;
+    }
+
+    @Override
     public boolean isAt(int row, int column) {
         return this.row == row && this.column == column;
     }
