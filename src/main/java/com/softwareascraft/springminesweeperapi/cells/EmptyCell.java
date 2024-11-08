@@ -25,4 +25,9 @@ public class EmptyCell extends FlaggableCell<EmptyCell> {
         return new EmptyCell(true, this.row, this.column);
     }
 
+    @Override
+    public boolean hasSameLocationAs(Cell otherCell) {
+        return true;
+    }
+
 }

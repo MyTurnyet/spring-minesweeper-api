@@ -32,6 +32,11 @@ public class RevealedCell implements Cell {
         return this.row == row && this.column == column;
     }
 
+    @Override
+    public boolean hasSameLocationAs(Cell otherCell) {
+        return false;
+    }
+
     public int adjacentMines() {
         return neighboringMinesCount;
     }
