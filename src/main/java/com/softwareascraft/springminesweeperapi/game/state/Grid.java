@@ -1,11 +1,10 @@
 package com.softwareascraft.springminesweeperapi.game.state;
 
-import com.softwareascraft.springminesweeperapi.cells.Cell;
-import com.softwareascraft.springminesweeperapi.cells.EmptyCell;
-import com.softwareascraft.springminesweeperapi.cells.MineCell;
+import com.softwareascraft.springminesweeperapi.cells.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Grid {
 
@@ -45,15 +44,14 @@ public class Grid {
         return (int) count;
     }
 
-    public Grid flag(Cell cell) {
-        int remainingMines = remainingMines();
-        if (cell.containsMine()) {
-            remainingMines--;
+    public Grid flag(FlaggableCell cell) {
+        Optional<Cell> cell2 = this.cellsList.stream().filter(cell1 -> cell1.hasSameLocationAs(cell)).findFirst();
+        if (cell2.isEmpty()) {
+            return this;
         }
-        //get flag cell at the same location
 
-        Grid grid =  Grid.create(this.rows, this.columns, remainingMines);
-
-        return grid;
+        FlaggableCell cell3 = (FlaggableCell) cell2.get();
+        cell3.addFlag();
+        return this;
     }
 }
