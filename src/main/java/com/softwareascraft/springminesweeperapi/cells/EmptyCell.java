@@ -27,7 +27,7 @@ public class EmptyCell extends FlaggableCell<EmptyCell> {
 
     @Override
     public boolean hasSameLocationAs(Cell otherCell) {
-        return true;
+        return otherCell.isAt(this.row, this.column);
     }
 
 }

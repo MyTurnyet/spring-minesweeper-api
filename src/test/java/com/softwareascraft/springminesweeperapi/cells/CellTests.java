@@ -86,4 +86,11 @@ public class CellTests {
         Cell cell2 = new EmptyCell(0, 0);
         assertThat(cell1.hasSameLocationAs(cell2)).isTrue();
     }
+
+    @Test
+    void cellsAreNotAtSameLocation() {
+        Cell cell1 = new EmptyCell(1, 0);
+        Cell cell2 = new EmptyCell(0, 0);
+        assertThat(cell1.hasSameLocationAs(cell2)).isFalse();
+    }
 }
