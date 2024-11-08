@@ -1,6 +1,6 @@
 package com.softwareascraft.springminesweeperapi.cells;
 
-public class MineCell extends FlaggableCell<MineCell> {
+public class MineCell extends FlaggableCell {
 
     public MineCell(int row, int column) {
         this(false, row, column);
@@ -13,16 +13,6 @@ public class MineCell extends FlaggableCell<MineCell> {
     @Override
     public boolean containsMine() {
         return true;
-    }
-
-    @Override
-    public MineCell removeFlag() {
-        return new MineCell(false, this.row, this.column);
-    }
-
-    @Override
-    public MineCell addFlag() {
-        return new MineCell(true, this.row, this.column);
     }
 
     @Override

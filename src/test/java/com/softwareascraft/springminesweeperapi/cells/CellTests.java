@@ -42,41 +42,41 @@ public class CellTests {
 
     @Test
     void doesNotShowFlagByDefault() {
-        FlaggableCell<EmptyCell> cell = new EmptyCell(0, 0);
+        FlaggableCell cell = new EmptyCell(0, 0);
         assertThat(cell.hasFlag()).isFalse();
     }
 
     @Test
     void cellShowsFlag() {
-        FlaggableCell<EmptyCell> cell = new EmptyCell(true, 0, 0);
+        FlaggableCell cell = new EmptyCell(true, 0, 0);
         assertThat(cell.hasFlag()).isTrue();
     }
 
     @Test
     void cellRemovesFlag() {
-        FlaggableCell<EmptyCell> cell = new EmptyCell(true, 0, 0);
-        FlaggableCell<EmptyCell> removedFlag = cell.removeFlag();
-        assertThat(removedFlag.hasFlag()).isFalse();
+        FlaggableCell cell = new EmptyCell(true, 0, 0);
+        cell.removeFlag();
+        assertThat(cell.hasFlag()).isFalse();
     }
 
     @Test
     void cellAddsFlag() {
-        FlaggableCell<EmptyCell> cell = new EmptyCell(false, 0, 0);
-        FlaggableCell<EmptyCell> addFlag = cell.addFlag();
-        assertThat(addFlag.hasFlag()).isTrue();
+        FlaggableCell cell = new EmptyCell(false, 0, 0);
+        cell.addFlag();
+        assertThat(cell.hasFlag()).isTrue();
     }
 
     @Test
     void mineCellAddsFlag() {
-        FlaggableCell<MineCell> cell = new MineCell(false, 0, 0);
-        FlaggableCell<MineCell> addFlag = cell.addFlag();
-        assertThat(addFlag.hasFlag()).isTrue();
-        assertThat(addFlag.containsMine()).isTrue();
+        FlaggableCell cell = new MineCell(false, 0, 0);
+        cell.addFlag();
+        assertThat(cell.hasFlag()).isTrue();
+        assertThat(cell.containsMine()).isTrue();
     }
 
     @Test
     void flaggableCellIsNotRevealed() {
-        FlaggableCell<MineCell> cell = new MineCell(false, 0, 0);
+        FlaggableCell cell = new MineCell(false, 0, 0);
         assertThat(cell.isRevealed()).isFalse();
     }
 
@@ -96,7 +96,7 @@ public class CellTests {
 
     @Test
     void cellIsFlaggable() {
-        FlaggableCell<EmptyCell> cell = new EmptyCell(0, 0);
+        FlaggableCell cell = new EmptyCell(0, 0);
         assertThat(cell.isFlaggable()).isTrue();
     }
 }
