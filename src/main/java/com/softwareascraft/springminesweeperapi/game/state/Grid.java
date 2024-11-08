@@ -11,8 +11,7 @@ public class Grid {
 
     private final int rows;
     private final int columns;
-    private final int mineCount;
-    private List<Cell> cellsList;
+    private final List<Cell> cellsList;
 
     public static Grid create(int rows, int columns, int mineCount) {
         ArrayList<Cell> cells = new ArrayList<>();
@@ -28,14 +27,12 @@ public class Grid {
 
             }
         }
-        Grid grid = new Grid(rows, columns, mineCount, cells);
-        return grid;
+        return new Grid(rows, columns, cells);
     }
 
-    private Grid(int rows, int columns, int mineCount, List<Cell> cells) {
+    private Grid(int rows, int columns, List<Cell> cells) {
         this.rows = rows;
         this.columns = columns;
-        this.mineCount = mineCount;
         this.cellsList = cells;
     }
 
