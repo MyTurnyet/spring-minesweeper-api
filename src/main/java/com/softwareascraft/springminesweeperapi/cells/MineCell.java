@@ -15,9 +15,4 @@ public class MineCell extends FlaggableCell {
         return true;
     }
 
-    @Override
-    public boolean hasSameLocationAs(Cell otherCell) {
-        return false;
-    }
-
 }

@@ -40,7 +40,13 @@ public class Grid {
     }
 
     public int remainingMines() {
-        long count = cells().stream().filter(Cell::containsMine).count();
+        long count = 0L;
+        for (Cell cell : cells()) {
+            boolean notFlagged = !cell.hasFlag();
+            if (cell.containsMine() && notFlagged) {
+                count++;
+            }
+        }
         return (int) count;
     }
 

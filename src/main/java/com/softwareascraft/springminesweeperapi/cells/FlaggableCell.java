@@ -42,4 +42,8 @@ public abstract class FlaggableCell implements Cell, Flaggable {
         return true;
     }
 
+    @Override
+    public boolean hasSameLocationAs(Cell otherCell) {
+        return otherCell.isAt(this.row, this.column);
+    }
 }

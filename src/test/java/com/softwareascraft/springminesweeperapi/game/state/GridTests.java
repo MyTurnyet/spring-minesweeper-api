@@ -3,6 +3,7 @@ package com.softwareascraft.springminesweeperapi.game.state;
 import com.softwareascraft.springminesweeperapi.cells.Cell;
 import com.softwareascraft.springminesweeperapi.cells.Flaggable;
 import com.softwareascraft.springminesweeperapi.cells.FlaggableCell;
+import com.softwareascraft.springminesweeperapi.cells.MineCell;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -68,8 +69,8 @@ public class GridTests {
 
     @Test
     void flaggingMineDecrementsMineCount() {
-        Grid grid = Grid.create(2, 2, 1);
-        FlaggableCell cell = (FlaggableCell) grid.cells().get(0);
+        Grid grid = Grid.create(1, 1, 1);
+        MineCell cell = (MineCell) grid.cells().get(0);
         Grid flaggedGrid = grid.flag(cell);
         assertThat(flaggedGrid.remainingMines()).isZero();
     }
