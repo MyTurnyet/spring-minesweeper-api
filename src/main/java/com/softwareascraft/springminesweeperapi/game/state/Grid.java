@@ -8,8 +8,6 @@ import java.util.Optional;
 
 public class Grid {
 
-    private final int rows;
-    private final int columns;
     private final List<Cell> cellsList;
 
     public static Grid create(int rows, int columns, int mineCount) {
@@ -26,12 +24,10 @@ public class Grid {
 
             }
         }
-        return new Grid(rows, columns, cells);
+        return new Grid(cells);
     }
 
-    private Grid(int rows, int columns, List<Cell> cells) {
-        this.rows = rows;
-        this.columns = columns;
+    private Grid(List<Cell> cells) {
         this.cellsList = cells;
     }
 
