@@ -48,6 +48,15 @@ public class Grid {
 
         FlaggableCell cell3 = (FlaggableCell) cell2.get();
         cell3.addFlag();
+
+        //get back new cell
+        //loop through list
+        //find if cell at same location
+        //if not at same location
+        //add old cell to new list
+        //is at same location - add newly created cell
+        //return new grid with changed list of cells
+
         return this;
     }
 }
