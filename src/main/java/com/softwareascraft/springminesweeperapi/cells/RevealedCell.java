@@ -23,11 +23,6 @@ public class RevealedCell implements Cell {
     }
 
     @Override
-    public boolean hasFlag() {
-        return false;
-    }
-
-    @Override
     public boolean isFlaggable() {
         return false;
     }

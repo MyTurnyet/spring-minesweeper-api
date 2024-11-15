@@ -36,17 +36,26 @@ public class Grid {
     }
 
     public int remainingMines() {
-        long count = cells().stream().filter(cell -> cell.containsMine() && !cell.hasFlag()).count();
+        long count = 0L;
+        for (Cell cell : cells()) {
+            if (cell.containsMine()) {
+
+                Flaggable flaggedCell = (Flaggable) cell;
+                if (!flaggedCell.hasFlag()) {
+                    count++;
+                }
+            }
+        }
         return (int) count;
     }
 
-    public Grid flag(FlaggableCell cell) {
+    public Grid flag(Flaggable cell) {
         Optional<Cell> cell2 = this.cellsList.stream().filter(cell1 -> cell1.hasSameLocationAs(cell)).findFirst();
         if (cell2.isEmpty()) {
             return this;
         }
 
-        FlaggableCell cell3 = (FlaggableCell) cell2.get();
+        Flaggable cell3 = (Flaggable) cell2.get();
         cell3.addFlag();
 
         //get back new cell

@@ -6,8 +6,6 @@ public interface Cell {
 
     boolean isRevealed();
 
-    boolean hasFlag();
-
     boolean isFlaggable();
 
     boolean isAt(int row, int column);

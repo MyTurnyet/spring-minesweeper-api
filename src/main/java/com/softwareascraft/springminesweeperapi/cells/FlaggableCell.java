@@ -1,6 +1,6 @@
 package com.softwareascraft.springminesweeperapi.cells;
 
-public abstract class FlaggableCell implements Cell, Flaggable {
+abstract class FlaggableCell {
 
     protected boolean showsFlag;
     protected final int row;
@@ -12,37 +12,19 @@ public abstract class FlaggableCell implements Cell, Flaggable {
         this.column = column;
     }
 
-    @Override
     public boolean isAt(int row, int column) {
         return this.row == row && this.column == column;
     }
 
-    @Override
-    public void removeFlag() {
-        this.showsFlag = false;
-    }
 
-    @Override
-    public void addFlag() {
-        this.showsFlag = true;
-    }
-
-    @Override
     public boolean isRevealed() {
         return false;
     }
 
-    @Override
-    public boolean hasFlag() {
-        return this.showsFlag;
-    }
-
-    @Override
     public boolean isFlaggable() {
         return true;
     }
 
-    @Override
     public boolean hasSameLocationAs(Cell otherCell) {
         return otherCell.isAt(this.row, this.column);
     }

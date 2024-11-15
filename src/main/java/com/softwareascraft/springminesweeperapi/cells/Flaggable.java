@@ -1,8 +1,10 @@
 package com.softwareascraft.springminesweeperapi.cells;
 
-public interface Flaggable {
+public interface Flaggable extends Cell {
 
-    void removeFlag();
+    Flaggable removeFlag();
 
-    void addFlag();
+    Flaggable addFlag();
+
+    boolean hasFlag();
 }
