@@ -5,6 +5,7 @@ import com.softwareascraft.springminesweeperapi.cells.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Grid {
 
@@ -50,22 +51,21 @@ public class Grid {
     }
 
     public Grid flag(Flaggable cell) {
-        Optional<Cell> cell2 = this.cellsList.stream().filter(cell1 -> cell1.hasSameLocationAs(cell)).findFirst();
-        if (cell2.isEmpty()) {
+        Optional<Cell> cellAtSameLocation = this.cellsList.stream()
+                .filter(
+                        callToCheck -> callToCheck.hasSameLocationAs(cell)
+                ).findFirst();
+        if (cellAtSameLocation.isEmpty()) {
             return this;
         }
 
-        Flaggable cell3 = (Flaggable) cell2.get();
-        cell3.addFlag();
+        Flaggable newCellWithFlag = ((Flaggable) cellAtSameLocation.get()).addFlag();
+        ArrayList<Cell> replacementCells = cellsList.stream()
+                .map(
+                        existingCell -> cell.hasSameLocationAs(newCellWithFlag)
+                                ? newCellWithFlag : existingCell)
+                .collect(Collectors.toCollection(ArrayList::new));
 
-        //get back new cell
-        //loop through list
-        //find if cell at same location
-        //if not at same location
-        //add old cell to new list
-        //is at same location - add newly created cell
-        //return new grid with changed list of cells
-
-        return this;
+        return new Grid(replacementCells);
     }
 }
