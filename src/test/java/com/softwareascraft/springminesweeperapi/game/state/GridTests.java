@@ -69,16 +69,16 @@ public class GridTests {
     @Test
     void flaggingMineDecrementsMineCount() {
         Grid grid = Grid.create(1, 1, 1);
-        MineCell cell = (MineCell) grid.cells().get(0);
-        Grid flaggedGrid = grid.flag(cell);
+        Flaggable mineCell = new MineCell(0, 0);
+        Grid flaggedGrid = grid.flag(mineCell);
         assertThat(flaggedGrid.remainingMines()).isZero();
     }
 
     @Test
     void AfterFlaggingReturnNewMineCount() {
         Grid grid = Grid.create(2, 2, 2);
-        Flaggable cell = (Flaggable) grid.cells().get(0);
-        Grid flaggedGrid = grid.flag(cell);
+        Flaggable mineCell = new MineCell(0, 0);
+        Grid flaggedGrid = grid.flag(mineCell);
         assertThat(flaggedGrid.remainingMines()).isEqualTo(1);
     }
 }

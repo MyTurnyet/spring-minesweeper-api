@@ -53,21 +53,19 @@ public class Grid {
     }
 
     public Grid flag(Flaggable cell) {
-        Optional<Cell> cellAtSameLocation = this.cellsList.stream()
-                .filter(
-                        callToCheck -> callToCheck.hasSameLocationAs(cell)
-                ).findFirst();
-        if (cellAtSameLocation.isEmpty()) {
-            return this;
+
+        ArrayList<Cell> newCellsToReturn = new ArrayList<>();
+        for (Cell oldCell : cellsList) {
+            if (!oldCell.isFlaggable()) {
+                continue;
+            }
+            if (!oldCell.hasSameLocationAs(cell)) {
+                newCellsToReturn.add(oldCell);
+                continue;
+            }
+            Flaggable newCellWithFlag = ((Flaggable) oldCell).addFlag();
+            newCellsToReturn.add(newCellWithFlag);
         }
-
-        Flaggable newCellWithFlag = ((Flaggable) cellAtSameLocation.get()).addFlag();
-        ArrayList<Cell> replacementCells = cellsList.stream()
-                .map(
-                        existingCell -> existingCell.hasSameLocationAs(newCellWithFlag)
-                                ? newCellWithFlag : existingCell)
-                .collect(Collectors.toCollection(ArrayList::new));
-
-        return new Grid(replacementCells);
+        return new Grid(newCellsToReturn);
     }
 }
