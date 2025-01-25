@@ -37,17 +37,19 @@ public class Grid {
     }
 
     public int remainingMines() {
-        long count = 0L;
+        int count = 0;
         for (Cell cell : cells()) {
-            if (cell.containsMine()) {
-
-                Flaggable flaggedCell = (Flaggable) cell;
-                if (!flaggedCell.hasFlag()) {
-                    count++;
-                }
+            if (!cell.containsMine()) {
+                continue;
             }
+
+            Flaggable flaggedCell = (Flaggable) cell;
+            if (flaggedCell.hasFlag()) {
+                continue;
+            }
+            count++;
         }
-        return (int) count;
+        return count;
     }
 
     public Grid flag(Flaggable cell) {
@@ -62,7 +64,7 @@ public class Grid {
         Flaggable newCellWithFlag = ((Flaggable) cellAtSameLocation.get()).addFlag();
         ArrayList<Cell> replacementCells = cellsList.stream()
                 .map(
-                        existingCell -> cell.hasSameLocationAs(newCellWithFlag)
+                        existingCell -> existingCell.hasSameLocationAs(newCellWithFlag)
                                 ? newCellWithFlag : existingCell)
                 .collect(Collectors.toCollection(ArrayList::new));
 
