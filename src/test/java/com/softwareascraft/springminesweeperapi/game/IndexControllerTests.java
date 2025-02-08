@@ -16,6 +16,6 @@ public class IndexControllerTests {
         ModelAndView view = indexController.index();
 
         assertThat(view.getViewName()).isEqualTo("index");
-        assertThat(view.getModelMap()).containsEntry("score", "0");
+        assertThat(view.getModelMap()).containsEntry("score", "5");
     }
 }

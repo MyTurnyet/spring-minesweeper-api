@@ -13,7 +13,7 @@ public class IndexController {
 
     @GetMapping("")
     public ModelAndView index() {
-        Map<String, String> attributes = Map.of("score", "0");
+        Map<String, String> attributes = Map.of("score", "5");
         return new ModelAndView("index", attributes);
     }
 
