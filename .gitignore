@@ -35,3 +35,7 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Approval Tests ###
+*.recieved.txt
+/.approval_tests_temp

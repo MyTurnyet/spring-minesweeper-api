@@ -1,5 +1,6 @@
 package com.softwareascraft.springminesweeperapi.game;
 
+import org.approvaltests.Approvals;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,6 @@ public class IndexControllerIntegrationTests {
         MvcResult result = mockMvc.perform(get("/game"))
                 .andExpect(status().isOk())
                 .andReturn();
+        Approvals.verify(result.getResponse().getContentAsString());
     }
 }
